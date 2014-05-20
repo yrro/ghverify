@@ -77,7 +77,7 @@ class Main {
         }
 
         def tag_json
-        http.get(path:"/repos/${owner}/${repo}/git/tags/${ref_json.object.sha}") { resp, json ->
+        http.get(path:ref_json.object.url) { resp, json ->
             tag_json = json
         }
 
