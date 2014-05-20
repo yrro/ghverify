@@ -1,0 +1,5 @@
+" Use this file with <https://github.com/embear/vim-localvimrc>
+setlocal ts=8
+setlocal sts=4
+setlocal sw=4
+setlocal et
