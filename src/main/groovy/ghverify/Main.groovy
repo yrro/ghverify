@@ -71,6 +71,10 @@ class Main {
             }
             throw e;
         }
+        if(ref_json instanceof java.util.ArrayList) {
+            System.err.println "Tag ${tag} not found in ${owner}/${repo}; did you mean one of ${ref_json.ref}?"
+            return 1
+        }
 
         def tag_json
         http.get(path:"/repos/${owner}/${repo}/git/tags/${ref_json.object.sha}") { resp, json ->
