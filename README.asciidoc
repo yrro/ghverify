@@ -1,0 +1,18 @@
+== ghverify
+
+Use Github's API to verify a signed tag in a repository.
+
+You'll need to create a https://github.com/blog/1509-personal-api-tokens[personal api token] to provide to the script. The token only needs access to read from the target repositories.
+
+=== To build
+
+    $ ./gradlew installApp
+    
+=== To run
+
+    $ build/install/ghverify/bin/ghverify api_token owner repository tag
+
+=== Known issues
+
+Tag objects include a UTC timestamp and a UTC offset, and both are required in order to construct the tag's digital signature. As a workaround I assume that the machine's default time zone (as determined by Java) was the one used when creating the tag object. This will become a command line parameter soon.
+Strangely, Github's API documentation imply that the offset is included in the data
